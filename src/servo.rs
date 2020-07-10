@@ -25,14 +25,14 @@ impl Servo {
     let _pwm = Pwm::with_period(
             n2_ch,
             Duration::from_millis(20),
-            Duration::from_micros(2450),
+            Duration::from_micros(2500),
             Polarity::Normal,
             true,
         ).unwrap();
         Self{
             pin: _pwm,
             min_us: 500 ,
-            max_us: 2450 ,
+            max_us: 2500 ,
             neutral_us: 1500,
             enable: false ,
             duty_cycle: 20,
