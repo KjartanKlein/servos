@@ -44,8 +44,12 @@ impl Servo {
     }
 
 
-    pub fn write(&mut self, value:u8) -> Result<(),rppal::pwm::Error>{
-        self.pin.set_pulse_width(Duration::from_micros(((500.0 + (value as f64)*11.11).floor()) as u64))
+    pub fn write(&mut self, value:u8) -> bool{
+
+        match self.pin.set_pulse_width(Duration::from_micros(((500.0 + (value as f64)*11.11).floor()) as u64)) {
+            Ok(_) => true,
+            Err(_) => false,
+        }
 
     }
 
