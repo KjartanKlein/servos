@@ -4,7 +4,7 @@ use rppal::pwm::{Channel,Polarity,Pwm};
 use std::time::Duration;
 
 
-struct Servo {
+pub struct Servo {
         pin: Pwm,
         pub min_us: u16,
         pub max_us: u16 ,
