@@ -45,8 +45,17 @@ impl Servo {
 
 
     pub fn write(&mut self, value:u8) -> bool{
+        let n_value = ((500.0 + (value as f64)*11.11).floor()) as u64;
+        println!("Value to be written {} --> {}",value , n_value);
+        match self.pin.set_pulse_width(Duration::from_micros(n_value)) {
+            Ok(_) => true,
+            Err(_) => false,
+        }
 
-        match self.pin.set_pulse_width(Duration::from_micros(((500.0 + (value as f64)*11.11).floor()) as u64)) {
+    }
+    pub fn write_pwm(&mut self, value:u64) -> bool{
+
+        match self.pin.set_pulse_width(Duration::from_micros(value)) {
             Ok(_) => true,
             Err(_) => false,
         }

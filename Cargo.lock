@@ -21,7 +21,7 @@ dependencies = [
 
 [[package]]
 name = "servos"
-version = "0.0.4"
+version = "0.0.5"
 dependencies = [
  "rppal 0.11.3 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
